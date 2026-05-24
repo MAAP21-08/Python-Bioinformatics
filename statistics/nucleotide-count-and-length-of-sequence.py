@@ -1,16 +1,20 @@
-from Bio.Seq import Seq
-n=int(input("Enter the number of sequence you want to input: "))
-for i in range(n):
-    print("enter sequence ",i+1,":")
-    Sequence=Seq(input())
-    CountA=Sequence.count("A")
-    CountT=Sequence.count("T")
-    CountG=Sequence.count("G")
-    CountC=Sequence.count("C")
-    print("Count of A in Sequence ",i+1," is :",CountA)
-    print("Count of T in Sequence",i+1," is : ",CountT)
-    print("Count of G in Sequence ",i+1," is : ",CountG)
-    print("Count of C in Sequence ",i+1," is : ",CountC)
-    l=len(Sequence)
-    print("Length of Sequence :",l)
-    print("\n")
+from Bio.Seq import Seq 
+
+n = int(input("Enter the number of sequence you want to input: "))
+
+for i in range(1, n + 1):
+
+    seq = Seq(input(f"Enter sequence {i}: ").upper())
+    
+    
+    # Print the length 
+
+    print(f"Length of Sequence {i}: {len(seq)}")
+
+    # Print all nucleotide counts
+    # nt = nucleotide, variable
+
+    counts = ", ".join(f"{nt}: {seq.count(nt)}" for nt in "ATGC")
+    
+    print(f"Counts: {counts}\n")
+    
